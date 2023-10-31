@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 
 @SpringBootApplication
 @EntityScan (basePackages = {"br.com.curso.apirest.Curso.Spring.model"})
-@ComponentScan(basePackages = {"Curso.*"})
+@ComponentScan(basePackages = {"br.com.curso.apirest.Curso.Spring"})
 @EnableJpaRepositories(basePackages = {"br.com.curso.apirest.Curso.Spring.repository"})
 @EnableTransactionManagement
 @EnableWebMvc

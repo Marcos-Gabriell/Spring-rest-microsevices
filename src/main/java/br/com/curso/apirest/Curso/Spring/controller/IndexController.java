@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity init(@RequestParam(value = "nome", defaultValue = "Você não informou nome") String nome) {
+    public ResponseEntity init(@RequestParam(value = "nome", ) String nome) {
 
         System.out.println("parametro sendo recebido " +  nome);
 

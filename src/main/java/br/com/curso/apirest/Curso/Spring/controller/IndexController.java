@@ -13,13 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity init(
-            @RequestParam(value = "nome", required = true, defaultValue = "Nome não informado") String nome,
-            @RequestParam(value = "salario", required = true) Long salario) {
+    public ResponseEntity init(@RequestParam(value = "nome", required = true, defaultValue = "Nome não informado") String nome) {
 
-        System.out.println("parâmetro sendo recebido " + nome);
+        System.out.println("parametro sendo recebido " +  nome);
 
-        return new ResponseEntity("Olá REST, seu nome é: " + nome + " e seu salário é: " + salario, HttpStatus.OK);
+        return new ResponseEntity("Olá REST seu nome é: " + nome, HttpStatus.OK);
     }
-
 }

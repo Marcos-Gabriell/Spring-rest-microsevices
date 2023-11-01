@@ -17,6 +17,6 @@ public class IndexController {
 
         System.out.println("parametro sendo recebido " +  nome);
 
-        return new ResponseEntity("Olá REST seu nome é: " + nome + "salario é: " salario, HttpStatus.OK);
+        return new ResponseEntity("Olá REST seu nome é: " + nome + "salario é: " + salario, HttpStatus.OK);
     }
 }

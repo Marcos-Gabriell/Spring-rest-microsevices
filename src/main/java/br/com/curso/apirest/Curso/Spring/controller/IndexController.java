@@ -19,7 +19,6 @@ public class IndexController {
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> init() {
 
-
         Usuario usuario = new Usuario();
         usuario.setId(50L);
         usuario.setLogin("marcos@gmail.com");
@@ -27,10 +26,12 @@ public class IndexController {
         usuario.setSenha("12345");
 
         Usuario usuario2 = new Usuario();
-        usuario.setId(10L);
-        usuario.setLogin("gabriel@gmail.com");
-        usuario.setNome("gabriel");
-        usuario.setSenha("5136");
+        usuario2.setId(10L);
+        usuario2.setLogin("gabriel@gmail.com");
+        usuario2.setNome("gabriel");
+        usuario2.setSenha("5136");
+
+
 
         List<Usuario> usuarios = new ArrayList<Usuario>();
         usuarios.add(usuario);

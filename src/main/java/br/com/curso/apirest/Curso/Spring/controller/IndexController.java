@@ -21,18 +21,21 @@ public class IndexController {
 
 
         Usuario usuario = new Usuario();
-
         usuario.setId(50L);
         usuario.setLogin("marcos@gmail.com");
         usuario.setNome("Marcos");
         usuario.setSenha("12345");
 
+        Usuario usuario2 = new Usuario();
         usuario.setId(10L);
         usuario.setLogin("gabriel@gmail.com");
         usuario.setNome("gabriel");
         usuario.setSenha("5136");
 
-        List<Usuario> usuarios = new ArrayList<>()
-        return new  ResponseEntity(usuarios, HttpStatus.OK)
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+        usuarios.add(usuario2);
+
+        return new  ResponseEntity(usuarios, HttpStatus.OK);
     }
 }

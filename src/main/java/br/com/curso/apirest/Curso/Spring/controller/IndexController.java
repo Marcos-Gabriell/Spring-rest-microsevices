@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "/usuario")
@@ -24,6 +27,12 @@ public class IndexController {
         usuario.setNome("Marcos");
         usuario.setSenha("12345");
 
-        return  ResponseEntity.ok(usuario);
+        usuario.setId(10L);
+        usuario.setLogin("gabriel@gmail.com");
+        usuario.setNome("gabriel");
+        usuario.setSenha("5136");
+
+        List<Usuario> usuarios = new ArrayList<>()
+        return new  ResponseEntity(usuarios);
     }
 }

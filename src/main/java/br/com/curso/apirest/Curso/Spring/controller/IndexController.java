@@ -33,6 +33,6 @@ public class IndexController {
         usuario.setSenha("5136");
 
         List<Usuario> usuarios = new ArrayList<>()
-        return new  ResponseEntity(usuarios);
+        return new  ResponseEntity(usuarios, HttpStatus.OK)
     }
 }

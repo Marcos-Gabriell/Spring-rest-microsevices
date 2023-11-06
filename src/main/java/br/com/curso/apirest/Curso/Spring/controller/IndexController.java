@@ -1,5 +1,6 @@
 package br.com.curso.apirest.Curso.Spring.controller;
 
+import br.com.curso.apirest.Curso.Spring.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity init() {
+    public ResponseEntity<Usuario> init() {
 
 
+        Usuario usuario = new Usuario();
 
-        return new ResponseEntity("Olá REST seu nome é: " + nome + " salario é: " + salario, HttpStatus.OK);
+        usuario.setId(50L);
+        usuario.setLogin("marcos@gmail.com");
+        usuario.setNome("Marcos");
+        usuario.setSenha("12345");
+
+        return  ResponseEntity.ok(usuario);
     }
 }

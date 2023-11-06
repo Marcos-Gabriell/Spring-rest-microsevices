@@ -2,6 +2,7 @@ package br.com.curso.apirest.Curso.Spring.controller;
 
 import br.com.curso.apirest.Curso.Spring.model.Usuario;
 import br.com.curso.apirest.Curso.Spring.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping(value = "/usuario")
 public class IndexController {
 
+    @Autowired
     private UsuarioRepository usuarioRepository;
 
     @GetMapping(value = "/", produces = "application/json")

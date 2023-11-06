@@ -32,7 +32,7 @@ public class IndexController {
         usuario.setNome("gabriel");
         usuario.setSenha("5136");
 
-        List<Usuario> usuarios = new ArrayList<>();
+        List<Usuario> usuarios = new ArrayList<Usuario>();
         usuarios.add(usuario);
         usuarios.add(usuario2);
 

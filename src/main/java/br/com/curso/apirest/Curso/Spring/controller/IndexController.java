@@ -24,23 +24,7 @@ public class IndexController {
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> init() {
 
-        Usuario usuario = new Usuario();
-        usuario.setId(50L);
-        usuario.setLogin("marcos@gmail.com");
-        usuario.setNome("Marcos");
-        usuario.setSenha("12345");
-
-        Usuario usuario2 = new Usuario();
-        usuario2.setId(10L);
-        usuario2.setLogin("gabriel@gmail.com");
-        usuario2.setNome("gabriel");
-        usuario2.setSenha("5136");
-
-
-
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        usuarios.add(usuario);
-        usuarios.add(usuario2);
+        usuarioRepository.
 
         return new  ResponseEntity(usuarios, HttpStatus.OK);
     }

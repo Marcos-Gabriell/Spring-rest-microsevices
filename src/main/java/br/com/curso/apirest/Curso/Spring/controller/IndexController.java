@@ -30,8 +30,10 @@ public class IndexController {
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Usuario>> usuario() {
-        List<Usuario> list = usuarioRepository.findAll();
-        return new ResponseEntity<>(list, HttpStatus.OK);
+
+        List<Usuario> list = (List<Usuario>) usuarioRepository.findAll();
+
+        return new ResponseEntity<List<Usuario>>(list, HttpStatus.OK);
     }
 
 }

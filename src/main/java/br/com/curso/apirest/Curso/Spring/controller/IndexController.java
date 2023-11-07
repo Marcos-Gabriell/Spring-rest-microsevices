@@ -7,11 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
-
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 @RestController
 @RequestMapping(value = "/usuario")
@@ -23,21 +20,16 @@ public class IndexController {
     @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<Usuario> init(@PathVariable(value = "id") Long id) {
 
-      Optional<Usuario> usuario = usuarioRepository.findById(id);
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
 
-        return new  ResponseEntity(usuario.get(), HttpStatus.OK);
+        return new ResponseEntity(usuario.get(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Usuario>> usuario() {
+    public ResponseEntity<List<Usuario> > usuario() {
 
         List<Usuario> list = (List<Usuario>) usuarioRepository.findAll();
 
         return new ResponseEntity<List<Usuario>>(list, HttpStatus.OK);
     }
-
 }
-
-
-}
-

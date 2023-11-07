@@ -19,10 +19,10 @@ public class IndexController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Usuario> init(@PathVariable ) {
+    public ResponseEntity<Usuario> init(@PathVariable(value = "id") Long id) {
 
-        usuarioRepository.
+      Optional<Usuario> usuario = usuarioRepository.findById(id);
 
-        return new  ResponseEntity(usuarios, HttpStatus.OK);
+        return new  ResponseEntity(usuario.get(), HttpStatus.OK);
     }
 }

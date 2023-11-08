@@ -44,7 +44,7 @@ public class IndexController {
         return new ResponseEntity<List<Usuario>>(list, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(value = "/")
     public ResponseEntity<Usuario> cadastar() {
 
     }

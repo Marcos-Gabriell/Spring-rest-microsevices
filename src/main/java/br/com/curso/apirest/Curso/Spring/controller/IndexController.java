@@ -52,8 +52,8 @@ public class IndexController {
         return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
+    @PostMapping(value = "/vendausuario", produces = "application/json")
+    public ResponseEntity<Usuario> cadastrarvenda(@RequestBody Usuario usuario) {
 
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 

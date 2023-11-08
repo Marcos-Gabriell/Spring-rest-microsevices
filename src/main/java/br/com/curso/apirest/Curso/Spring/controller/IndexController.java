@@ -27,8 +27,9 @@ public class IndexController {
 
 
 
-    @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id) {
+    @GetMapping(value = "/{id}/codigodevenda/{venda}", produces = "application/json")
+    public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id
+                                                       , @PathVariable (value = "venda") Long venda) {
 
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 

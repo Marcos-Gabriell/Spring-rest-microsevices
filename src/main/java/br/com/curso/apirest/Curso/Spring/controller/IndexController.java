@@ -48,4 +48,8 @@ public class IndexController {
     public ResponseEntity<Usuario> cadastar() {
 
     }
+    @PostMapping(value = "/", produces = "application/json")
+    public ResponseEntity<Usuario> cadastar(@RequestBody Usuario usuario) {
+
+    }
 }

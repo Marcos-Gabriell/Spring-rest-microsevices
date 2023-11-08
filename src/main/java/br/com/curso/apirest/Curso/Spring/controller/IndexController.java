@@ -49,7 +49,10 @@ public class IndexController {
 
     }
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Usuario> cadastar(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
 
+        Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
+        return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
     }
 }

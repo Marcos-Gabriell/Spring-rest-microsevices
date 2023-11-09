@@ -29,7 +29,7 @@ public class IndexController {
 
     @GetMapping(value = "/{id}/codigodevenda/{venda}", produces = "application/json")
     public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id
-                                                       , @PathVariable (value = "venda") Long venda) {
+            , @PathVariable (value = "venda") Long venda) {
 
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 
@@ -68,11 +68,11 @@ public class IndexController {
 
         return new ResponseEntity("Venda atualizada", HttpStatus.OK);
     }
-
+}
 
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
     public ResponseEntity cadastrarvenda(@PathVariable Long iduser,
-                                                  @PathVariable Long idvenda) {
+                                         @PathVariable Long idvenda) {
 
         //Usuario usuarioSalvo = usuarioRepository.save(usuario);
 

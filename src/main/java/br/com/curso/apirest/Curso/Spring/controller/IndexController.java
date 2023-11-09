@@ -53,11 +53,11 @@ public class IndexController {
     }
 
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
-    public ResponseEntity<Usuario> cadastrarvenda(@PathVariable Long iduser,
+    public ResponseEntity cadastrarvenda(@PathVariable Long iduser,
                                                   @PathVariable Long idvenda) {
 
-        Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        //Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
+        return new ResponseEntity("id user :" + id+userusuarioSalvo, HttpStatus.OK);
     }
 }

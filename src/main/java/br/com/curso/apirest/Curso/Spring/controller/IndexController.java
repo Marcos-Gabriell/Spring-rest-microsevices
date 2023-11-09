@@ -53,7 +53,7 @@ public class IndexController {
     }
 
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
-    public ResponseEntity<Usuario> cadastrarvenda(@ Usuario usuario) {
+    public ResponseEntity<Usuario> cadastrarvenda(@PathVariable Long iduser, @path) {
 
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 

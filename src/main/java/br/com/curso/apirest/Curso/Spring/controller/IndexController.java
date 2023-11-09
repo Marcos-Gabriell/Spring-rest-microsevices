@@ -68,7 +68,7 @@ public class IndexController {
 
         return new ResponseEntity("Venda atualizada", HttpStatus.OK);
     }
-}
+
 
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
     public ResponseEntity cadastrarvenda(@PathVariable Long iduser,

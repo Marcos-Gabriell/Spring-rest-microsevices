@@ -58,6 +58,6 @@ public class IndexController {
 
         //Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity("id user :" + id+userusuarioSalvo, HttpStatus.OK);
+        return new ResponseEntity("id user: " + iduser + "idvenda: " + idvenda, HttpStatus.OK);
     }
 }

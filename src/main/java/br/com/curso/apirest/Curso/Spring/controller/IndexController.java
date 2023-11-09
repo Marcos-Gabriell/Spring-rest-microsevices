@@ -60,6 +60,16 @@ public class IndexController {
         return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
     }
 
+    @PutMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
+    public ResponseEntity atualziarvenda(@PathVariable Long iduser,
+                                         @PathVariable Long idvenda) {
+
+        //Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
+        return new ResponseEntity("Venda atualizada", HttpStatus.OK);
+    }
+}
+
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
     public ResponseEntity cadastrarvenda(@PathVariable Long iduser,
                                                   @PathVariable Long idvenda) {

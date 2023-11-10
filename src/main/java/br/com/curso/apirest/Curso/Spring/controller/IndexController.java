@@ -34,6 +34,8 @@ public class IndexController {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 
         return new ResponseEntity(usuario.get(), HttpStatus.OK);
+
+        return (ResponseEntity) ResponseEntity.ok();
     }
 
 

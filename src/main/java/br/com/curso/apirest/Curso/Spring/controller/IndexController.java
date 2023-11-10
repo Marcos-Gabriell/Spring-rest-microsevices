@@ -35,7 +35,7 @@ public class IndexController {
 
         return new ResponseEntity(usuario.get(), HttpStatus.OK);
 
-        return (ResponseEntity) ResponseEntity.ok();
+
     }
 
 

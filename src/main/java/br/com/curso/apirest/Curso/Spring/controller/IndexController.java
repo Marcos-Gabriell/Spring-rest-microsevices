@@ -23,6 +23,7 @@ public class IndexController {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 
         return new ResponseEntity(usuario.get(), HttpStatus.OK);
+
     }
 
 
@@ -43,6 +44,8 @@ public class IndexController {
     Public ResponseEntity delete(@PathVariable("id") Long id) {
 
         usuarioRepository.deleteById(id);
+
+        return (ResponseEntity) ResponseEntity.ok();
     }
 
     @GetMapping(value = "/", produces = "application/json")

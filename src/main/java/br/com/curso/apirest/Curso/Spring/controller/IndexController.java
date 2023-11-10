@@ -37,6 +37,7 @@ public class IndexController {
     }
 
 
+    Public ResponseEntity delete(@PathVariable("id") Long id)
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Usuario> > usuario() {

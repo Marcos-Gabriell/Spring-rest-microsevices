@@ -36,14 +36,6 @@ public class IndexController {
         return new ResponseEntity(usuario.get(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}/codigodevenda/{venda}", produces = "application/json")
-    public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id
-            , @PathVariable (value = "venda") Long venda) {
-
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        return new ResponseEntity(usuario.get(), HttpStatus.OK);
-    }
 
 
     @GetMapping(value = "/", produces = "application/json")

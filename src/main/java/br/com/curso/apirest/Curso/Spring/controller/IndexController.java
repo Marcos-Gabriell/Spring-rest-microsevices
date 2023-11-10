@@ -37,6 +37,7 @@ public class IndexController {
     }
 
 
+    @DeleteMapping(valeu = "/{id}", produces = "application/text")
     Public ResponseEntity delete(@PathVariable("id") Long id)
 
     @GetMapping(value = "/", produces = "application/json")

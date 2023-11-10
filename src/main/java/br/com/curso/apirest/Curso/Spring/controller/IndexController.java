@@ -38,7 +38,10 @@ public class IndexController {
 
 
     @DeleteMapping(valeu = "/{id}", produces = "application/text")
-    Public ResponseEntity delete(@PathVariable("id") Long id)
+    Public ResponseEntity delete(@PathVariable("id") Long id) {
+
+        usuarioRepository.deleteById(id);
+    }
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Usuario> > usuario() {

@@ -10,45 +10,55 @@ import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController /* Arquitetura REST */
 @RequestMapping(value = "/usuario")
 public class IndexController {
 
-    @Autowired
+    @Autowired /* de fosse CDI seria @Inject*/
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping(value = "/{id}/relatoriopdf", produces = "application/json")
-    public ResponseEntity<Usuario> init(@PathVariable(value = "id") Long id) {
 
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        return new ResponseEntity(usuario.get(), HttpStatus.OK);
-
-    }
-
-
-
-    @GetMapping(value = "/{id}/codigodevenda/{venda}", produces = "application/json")
-    public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id
+    /* Serviço RESTful */
+    @GetMapping(value = "/{id}/codigovenda/{venda}", produces = "application/json")
+    public ResponseEntity<Usuario> relatorio(@PathVariable (value = "id") Long id
             , @PathVariable (value = "venda") Long venda) {
 
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 
-        return new ResponseEntity(usuario.get(), HttpStatus.OK);
-
-
+        /*o retorno seria um relatorio*/
+        return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
     }
 
 
-    @DeleteMapping(value = "/{id}", produces = "text/plain")
-    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+    /* Serviço RESTful */
+    @GetMapping(value = "/{id}", produces = "application/json")
+    public ResponseEntity<Usuario> init(@PathVariable (value = "id") Long id) {
+
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+
+        return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}", produces = "application/text")
+    public String delete (@PathVariable("id") Long id){
+
         usuarioRepository.deleteById(id);
-        return ResponseEntity.ok("Resource deleted successfully");
+
+        return "ok";
+    }
+
+
+    @DeleteMapping(value = "/{id}/venda", produces = "application/text")
+    public String deletevenda(@PathVariable("id") Long id){
+
+        usuarioRepository.deleteById(id);
+
+        return "ok";
     }
 
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Usuario> > usuario() {
+    public ResponseEntity<List<Usuario>> usuario (){
 
         List<Usuario> list = (List<Usuario>) usuarioRepository.findAll();
 
@@ -61,23 +71,32 @@ public class IndexController {
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
         return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
+
     }
+
 
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
 
+        /*outras rotinas antes de atualizar*/
+
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
         return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
+
     }
 
+
+
     @PutMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
-    public ResponseEntity atualziarvenda(@PathVariable Long iduser,
-                                         @PathVariable Long idvenda) {
+    public ResponseEntity updateVenda(@PathVariable Long iduser,
+                                      @PathVariable Long idvenda) {
+        /*outras rotinas antes de atualizar*/
 
         //Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity("Venda atualizada", HttpStatus.OK);
+        return new ResponseEntity("Venda atualzada", HttpStatus.OK);
+
     }
 
 
@@ -85,8 +104,14 @@ public class IndexController {
     public ResponseEntity cadastrarvenda(@PathVariable Long iduser,
                                          @PathVariable Long idvenda) {
 
+        /*Aqui seria o processo de venda*/
         //Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity("id user: " + iduser + " idvenda: " + idvenda, HttpStatus.OK);
+        return new ResponseEntity("id user :" + iduser + " idvenda :"+ idvenda, HttpStatus.OK);
+
     }
+
+
+
+
 }

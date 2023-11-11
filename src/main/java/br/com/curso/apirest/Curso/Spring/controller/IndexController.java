@@ -44,7 +44,7 @@ public class IndexController {
 
         usuarioRepository.deleteById(id);
 
-        return "ok";
+        return "Deletado com sucesso!";
     }
 
 

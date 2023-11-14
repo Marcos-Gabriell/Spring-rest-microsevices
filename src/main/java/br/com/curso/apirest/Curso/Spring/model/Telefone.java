@@ -6,16 +6,13 @@ import javax.persistence.*;
 public class Telefone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Correção da estratégia de geração de chave primária
     private Long id;
-
 
     private String numero;
 
-
-
-    @org.hibernate.annotations.ForeignKey(name = "usuario_id");
-    @ManyToOne()
+    @ManyToOne
+    @JoinColumn(name = "usuario_id") // Correção da anotação para especificar a chave estrangeira
     private Usuario usuario;
 
     public Long getId() {

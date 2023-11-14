@@ -1,5 +1,7 @@
 package br.com.curso.apirest.Curso.Spring.model;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Telefone {
 
     private String numero;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "usuario_id") // Correção da anotação para especificar a chave estrangeira
     private Usuario usuario;

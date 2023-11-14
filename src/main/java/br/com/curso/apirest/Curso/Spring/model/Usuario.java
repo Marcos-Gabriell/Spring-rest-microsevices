@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +22,8 @@ public class Usuario  implements Serializable {
     private String senha;
 
     private String nome;
+
+    private List<Telefone> telefones = new ArrayList<Telefone>()
 
     public Long getId() {
         return id;

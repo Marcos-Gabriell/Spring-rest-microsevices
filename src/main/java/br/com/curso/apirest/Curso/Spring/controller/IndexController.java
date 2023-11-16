@@ -6,109 +6,85 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
-import java.util.ArrayList;
-import java.util.List;
 
-@RestController /* Arquitetura REST */
+import java.util.List;
+import java.util.Optional;
+
+@RestController
 @RequestMapping(value = "/usuario")
 public class IndexController {
 
-    @Autowired /* de fosse CDI seria @Inject*/
+    @Autowired
     private UsuarioRepository usuarioRepository;
 
-
-    /* Serviço RESTful */
     @GetMapping(value = "/{id}/codigovenda/{venda}", produces = "application/json")
-    public ResponseEntity<Usuario> relatorio(@PathVariable (value = "id") Long id
-            , @PathVariable (value = "venda") Long venda) {
-
+    public ResponseEntity<Usuario> relatorio(@PathVariable(value = "id") Long id,
+                                             @PathVariable(value = "venda") Long venda) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        /*o retorno seria um relatorio*/
-        return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
+        return usuario.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-
-    /* Serviço RESTful */
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Usuario> init(@PathVariable (value = "id") Long id) {
-
+    public ResponseEntity<Usuario> init(@PathVariable(value = "id") Long id) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
-
-        return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
+        return usuario.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/text")
-    public String delete (@PathVariable("id") Long id){
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
 
-        usuarioRepository.deleteById(id);
-
-        return "Deletado com sucesso!";
+        if (usuarioOptional.isPresent()) {
+            usuarioRepository.deleteById(id);
+            return new ResponseEntity<>("Deletado com sucesso!", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Usuário não encontrado", HttpStatus.NOT_FOUND);
+        }
     }
-
-
-    @DeleteMapping(value = "/{id}/venda", produces = "application/text")
-    public String deletevenda(@PathVariable("id") Long id){
-
-        usuarioRepository.deleteById(id);
-
-        return "ok";
-    }
-
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Usuario>> usuario (){
-
+    public ResponseEntity<List<Usuario>> usuario() {
         List<Usuario> list = (List<Usuario>) usuarioRepository.findAll();
-
-        return new ResponseEntity<List<Usuario>>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
-
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
-
-        return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
-
+        return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
 
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
+        Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario.getId());
 
-        /*outras rotinas antes de atualizar*/
-
-        Usuario usuarioSalvo = usuarioRepository.save(usuario);
-
-        return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
-
+        if (usuarioExistente.isPresent()) {
+            /*outras rotinas antes de atualizar*/
+            Usuario usuarioSalvo = usuarioRepository.save(usuario);
+            return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-
-
 
     @PutMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
-    public ResponseEntity updateVenda(@PathVariable Long iduser,
-                                      @PathVariable Long idvenda) {
+    public ResponseEntity<String> updateVenda(@PathVariable Long iduser,
+                                              @PathVariable Long idvenda) {
         /*outras rotinas antes de atualizar*/
 
-        //Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        // Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity("Venda atualzada", HttpStatus.OK);
-
+        return new ResponseEntity<>("Venda atualizada", HttpStatus.OK);
     }
-
 
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
-    public ResponseEntity cadastrarvenda(@PathVariable Long iduser,
-                                         @PathVariable Long idvenda) {
-
+    public ResponseEntity<String> cadastrarvenda(@PathVariable Long iduser,
+                                                 @PathVariable Long idvenda) {
         /*Aqui seria o processo de venda*/
-        //Usuario usuarioSalvo = usuarioRepository.save(usuario);
+        // Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        return new ResponseEntity("id user :" + iduser + " idvenda :"+ idvenda, HttpStatus.OK);
-
+        return new ResponseEntity<>("id user :" + iduser + " idvenda :" + idvenda, HttpStatus.OK);
     }
-
-
 }

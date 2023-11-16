@@ -74,7 +74,6 @@ public class IndexController {
 
     }
 
-
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
 

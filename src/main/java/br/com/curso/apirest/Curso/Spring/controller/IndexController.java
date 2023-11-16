@@ -52,13 +52,17 @@ public class IndexController {
 
     @PostMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
+
+        for
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
         return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
 
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario.getId());
+
 
         if (usuarioExistente.isPresent()) {
             /*outras rotinas antes de atualizar*/

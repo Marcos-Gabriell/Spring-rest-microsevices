@@ -53,7 +53,7 @@ public class IndexController {
     @PostMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
 
-        for (int pos = 0; pos < usuario.getTelefones().size(); pos ++) {
+        for (int pos = 0; pos < usuario.getTelefones().size(); pos++) {
             usuario.getTelefones().get(pos).setUsuario(usuario);
         }
 
@@ -61,27 +61,20 @@ public class IndexController {
 
         return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
-z
+
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario.getId());
 
+        Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
-        for(int pos = 0; pos < usuario.getTelefones().size(); pos ++) {
-            usuario.getTelefones().get(pos).setUsuario(usuario);
-        }
-
-            Usuario usuarioSalvo = usuarioRepository.save(usuario);
-
-            return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
+        return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
 
     @PutMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
     public ResponseEntity<String> updateVenda(@PathVariable Long iduser,
                                               @PathVariable Long idvenda) {
-        /*outras rotinas antes de atualizar*/
 
-        // Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
         return new ResponseEntity<>("Venda atualizada", HttpStatus.OK);
     }
@@ -89,9 +82,8 @@ z
     @PostMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")
     public ResponseEntity<String> cadastrarvenda(@PathVariable Long iduser,
                                                  @PathVariable Long idvenda) {
-        /*Aqui seria o processo de venda*/
-        // Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
 
         return new ResponseEntity<>("id user :" + iduser + " idvenda :" + idvenda, HttpStatus.OK);
+
     }
-}

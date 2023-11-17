@@ -61,19 +61,19 @@ public class IndexController {
 
         return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
-
+z
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario.getId());
 
 
-        if (usuarioExistente.isPresent()) {
-            /*outras rotinas antes de atualizar*/
-            Usuario usuarioSalvo = usuarioRepository.save(usuario);
-            return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        for(int pos = 0; pos < usuario.getTelefones().size(); pos ++) {
+            usuario.getTelefones().get(pos).setUsuario(usuario);
         }
+
+            Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
+            return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
 
     @PutMapping(value = "/{iduser}/idvenda/{idvenda}", produces = "application/json")

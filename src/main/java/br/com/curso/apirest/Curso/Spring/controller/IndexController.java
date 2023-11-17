@@ -62,7 +62,6 @@ public class IndexController {
         return new ResponseEntity<>(usuarioSalvo, HttpStatus.OK);
     }
 
-
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizar(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(usuario.getId());

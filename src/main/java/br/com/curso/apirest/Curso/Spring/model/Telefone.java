@@ -8,15 +8,14 @@ import javax.persistence.*;
 public class Telefone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Correção da estratégia de geração de chave primária
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String numero;
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "usuario_id") // Correção da anotação para especificar a chave estrangeira
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false) // Move optional=false here
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     public Long getId() {

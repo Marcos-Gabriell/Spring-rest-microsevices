@@ -16,6 +16,7 @@ public class Telefone {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "usuario_id") // Correção da anotação para especificar a chave estrangeira
+    @ManyToOne(optional = false)
     private Usuario usuario;
 
     public Long getId() {

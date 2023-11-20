@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequestMapping(value = "/usuario")
 public class IndexController {
 
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 

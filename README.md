@@ -1,2 +1,11 @@
-# Projeto pausado.
-Resumo: e um crud basico contruido com javba + spring rest + spring data jpa e o banco de dados postregssql(obs: proejto pausado na etapa de implementar a resugraçã da requisições e da da aplicação)
+# Projeto Pausado
+
+## Resumo
+Este é um CRUD básico construído utilizando Java, Spring REST e Spring Data JPA, com o banco de dados PostgreSQL. (Observação: O projeto está pausado na etapa de implementação da gestão de requisições e da aplicação.)
+
+---
+
+**Observação:**
+O projeto encontra-se pausado durante a etapa de implementação da gestão de requisições e da aplicação.
+
+---

@@ -65,6 +65,15 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [PostgreSQL](https://www.postgresql.org/download/)
 
+### Clonar o Projeto
+
+1. Abra o terminal no seu computador.
+
+2. Navegue até o diretório onde você deseja armazenar o projeto. Por exemplo:
+
+   ```bash
+   cd caminho/para/seu/diretorio
+   
 ## Configuração do Banco de Dados
 
 1. Crie um banco de dados PostgreSQL com o nome `curso_spring`.

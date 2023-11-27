@@ -53,9 +53,24 @@ Este é um projeto CRUD básico desenvolvido em Java com Spring REST e Spring Da
 - **Exemplo de Uso:** `/usuario/1/idvenda/123`
 - **Resposta Sucesso:** Status HTTP 200 OK com a mensagem indicando que a venda foi cadastrada.
 
----
+# Como Executar
 
-**Observação:**
-O desenvolvimento está temporariamente pausado durante a implementação da gestão de requisições e reforço da segurança da aplicação.
+Para executar este projeto em seu computador local, siga as etapas abaixo:
 
----
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados em seu sistema:
+
+- [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- [PostgreSQL](https://www.postgresql.org/download/)
+
+## Configuração do Banco de Dados
+
+1. Crie um banco de dados PostgreSQL com o nome `curso_spring`.
+2. Configure as credenciais do banco de dados no arquivo `src/main/resources/application.properties`.
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/curso_spring
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha

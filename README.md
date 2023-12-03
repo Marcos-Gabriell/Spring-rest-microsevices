@@ -74,6 +74,7 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
    
 ## Configuração do Banco de Dados
 
+
 1. Crie um banco de dados PostgreSQL com o nome `curso_spring`.
 2. Configure as credenciais do banco de dados no arquivo `src/main/resources/application.properties`.
 

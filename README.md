@@ -5,6 +5,7 @@
 
 Este é um projeto CRUD básico desenvolvido em Java com Spring REST e Spring Data JPA, integrado ao banco de dados PostgreSQL. O objetivo é fornecer operações de criação, leitura, atualização e exclusão (CRUD) para a entidade "Usuário". Até o momento, o projeto está pausado durante a implementação da gestão de requisições e na melhoria da segurança da aplicação.
 
+
 ## Endpoints
 
 

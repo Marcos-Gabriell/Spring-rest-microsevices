@@ -71,7 +71,6 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 1. Clone este repositório.
 2. Abra o projeto em sua IDE Java (Eclipse, IntelliJ, etc.).
 3. Execute a aplicação no método main.
-
    
 ## Configuração do Banco de Dados
 

@@ -76,7 +76,6 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 2. Abra o projeto em sua IDE Java (Eclipse, IntelliJ, etc.).
 3. Execute a aplicação no método main.
 
-   
 ## Configuração do Banco de Dados
 
 1. Crie um banco de dados PostgreSQL com o nome `curso_spring`.

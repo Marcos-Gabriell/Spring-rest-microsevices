@@ -69,6 +69,7 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [PostgreSQL](https://www.postgresql.org/download/)
 
+
 ### Clonar o Projeto
 
 1. Clone este repositório.

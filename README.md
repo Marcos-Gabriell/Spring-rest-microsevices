@@ -81,4 +81,3 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 spring.datasource.url=jdbc:postgresql://localhost:5432/curso_spring
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
-

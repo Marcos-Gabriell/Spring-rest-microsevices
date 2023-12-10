@@ -20,7 +20,6 @@ Este é um projeto CRUD básico desenvolvido em Java com Spring REST e Spring Da
 - **Resposta Sucesso:** Status HTTP 200 OK com a mensagem "Deletado com sucesso!".
 - **Resposta Erro:** Status HTTP 404 Not Found se o usuário não for encontrado.
 
-
 ### 3. Listar Todos os Usuários
 - **Endpoint:** `GET /usuario/`
 - **Descrição:** Retorna a lista de todos os usuários.

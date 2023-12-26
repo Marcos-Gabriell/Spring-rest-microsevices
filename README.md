@@ -9,6 +9,7 @@ Este é um projeto CRUD básico desenvolvido em Java com Spring REST e Spring Da
 
 ## Endpoints
 
+
 ### 1. Obter Usuário por ID
 - **Endpoint:** `GET /usuario/{id}`
 - **Descrição:** Retorna as informações do usuário com o ID especificado.
